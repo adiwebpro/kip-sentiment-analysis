@@ -554,14 +554,10 @@ def not_found_error(error):
 def internal_error(error):
     return render_template('500.html'), 500
 
-# Ganti bagian terakhir app.py
 if __name__ == '__main__':
     # Create upload folder if it doesn't exist
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
     os.makedirs('model', exist_ok=True)
-    
-    # Untuk production di PythonAnywhere
-    app.run(debug=False)  # Pastikan debug=False
     
     print("Server starting...")
     print("Available routes:")
