@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Hasil Preprocessing Data</h2>
+
+<div class="alert alert-info">
+    Data berikut menunjukkan contoh hasil preprocessing dari 10 data pertama.
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Data Asli</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ulasan Asli</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in original_data %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ item.ulasan }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <h5>Data Setelah Preprocessing</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Ulasan Hasil Preprocessing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in processed_data %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ item.ulasan_processed }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5>Lanjutkan ke Analisis</h5>
+    </div>
+    <div class="card-body">
+        <form method="POST" action="{{ url_for('analyze') }}">
+            <input type="hidden" name="filename" value="{{ filename }}">
+            
+            <div class="mb-3">
+                <label class="form-label">Pilih Algoritma Klasifikasi:</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="algorithm" id="algorithm_nb" value="naive_bayes" checked>
+                    <label class="form-check-label" for="algorithm_nb">
+                        Naive Bayes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="algorithm" id="algorithm_svm" value="svm">
+                    <label class="form-check-label" for="algorithm_svm">
+                        Support Vector Machine (SVM)
+                    </label>
+                </div>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Jalankan Analisis</button>
+            <a href="{{ url_for('upload_file') }}" class="btn btn-secondary">Unggah Data Baru</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

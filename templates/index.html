@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="jumbotron bg-light p-5 rounded-3 mb-4">
+            <h1 class="display-4">Analisis Sentimen KIP Kuliah</h1>
+            <p class="lead">Website ini menganalisis sentimen dari ulasan masyarakat mengenai program KIP Kuliah menggunakan algoritma Naive Bayes dan SVM.</p>
+            <hr class="my-4">
+            <p>Unggah data Anda dan lihat hasil analisis sentimen secara instan.</p>
+            <a class="btn btn-primary btn-lg" href="{{ url_for('upload_file') }}" role="button">Mulai Analisis</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-upload"></i> Unggah Data</h5>
+                <p class="card-text">Unggah file CSV atau Excel yang berisi data ulasan tentang KIP Kuliah.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-gear"></i> Preprocessing</h5>
+                <p class="card-text">Lihat proses pembersihan data teks sebelum dilakukan analisis.</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 text-center">
+            <div class="card-body">
+                <h5 class="card-title"><i class="bi bi-bar-chart"></i> Visualisasi</h5>
+                <p class="card-text">Lihat hasil analisis dalam bentuk grafik dan tabel yang informatif.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Alur Kerja Analisis Sentimen</h5>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <p>Unggah Data → Preprocessing → Pilih Algoritma → Analisis → Hasil & Visualisasi</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

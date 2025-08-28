@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Analisis & Perbandingan Model</h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Pilih Algoritma untuk Analisis</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="{{ url_for('analyze') }}">
+                    <input type="hidden" name="filename" value="{{ filename }}">
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Naive Bayes</h5>
+                                    <p class="card-text">Algoritma probabilistik yang cepat dan efisien untuk klasifikasi teks</p>
+                                    <div class="form-check form-switch d-inline-block">
+                                        <input class="form-check-input" type="radio" name="algorithm" id="algorithm_nb" value="naive_bayes" checked>
+                                        <label class="form-check-label" for="algorithm_nb">Pilih</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">SVM</h5>
+                                    <p class="card-text">Support Vector Machine, algoritma yang powerful untuk pemisahan data kompleks</p>
+                                    <div class="form-check form-switch d-inline-block">
+                                        <input class="form-check-input" type="radio" name="algorithm" id="algorithm_svm" value="svm">
+                                        <label class="form-check-label" for="algorithm_svm">Pilih</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="bi bi-play-circle"></i> Jalankan Analisis
+                        </button>
+                        <a href="{{ url_for('compare_models') }}?filename={{ filename }}" class="btn btn-outline-primary btn-lg">
+                            <i class="bi bi-bar-chart"></i> Bandingkan Kedua Model
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5>Informasi Dataset</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama File</th>
+                                <th>Jumlah Data</th>
+                                <th>Tanggal Unggah</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ filename }}</td>
+                                <td>{{ data_count }} baris</td>
+                                <td>{{ upload_time }}</td>
+                                <td>
+                                    <a href="{{ url_for('upload_file') }}" class="btn btn-sm btn-outline-secondary">
+                                        Unggah Baru
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

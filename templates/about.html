@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Tentang Website Ini</h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4 class="card-title">Analisis Sentimen KIP Kuliah</h4>
+                <p class="card-text">
+                    Website ini dikembangkan oleh Bagus Adi Suratno untuk menganalisis sentimen dari ulasan masyarakat mengenai 
+                    program Kartu Indonesia Pintar (KIP) Kuliah. Dengan menggunakan teknik pemrosesan 
+                    bahasa alami (NLP) dan machine learning, sistem dapat mengklasifikasikan ulasan 
+                    menjadi sentimen positif, negatif, atau netral.
+                </p>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Algoritma yang Digunakan</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>Naive Bayes</h6>
+                        <p>Algoritma klasifikasi probabilistik yang berdasarkan pada Teorema Bayes dengan asumsi kemandirian yang kuat (naive) antar fitur.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Support Vector Machine (SVM)</h6>
+                        <p>Algoritma klasifikasi yang mencari hyperplane terbaik untuk memisahkan data ke dalam kelas-kelas yang berbeda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5>Fitur Website</h5>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>Unggah data dalam format CSV atau Excel</li>
+                    <li>Preprocessing data teks otomatis</li>
+                    <li>Analisis sentimen dengan dua algoritma berbeda</li>
+                    <li>Visualisasi hasil analisis</li>
+                    <li>Perbandingan performa algoritma</li>
+                    <li>Antarmuka yang responsive dan user-friendly</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5>Open Source</h5>
+            </div>
+            <div class="card-body">
+                <p>
+    Projek ini bersifat open source dan dapat dikembangkan lebih lanjut oleh komunitas. 
+    Source code dapat diakses melalui repository GitHub atau hubungi langsung via WhatsApp.
+</p>
+
+<a href="https://wa.me/6285867431606" target="_blank" class="btn btn-outline-success">
+    <i class="bi bi-whatsapp"></i> Hubungi via WhatsApp
+</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
